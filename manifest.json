@@ -1,0 +1,20 @@
+{
+  "name": "Modo de Estudo",
+  "description": "Esconde distrações em sites enquanto você estuda.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*", "*://*.twitter.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
